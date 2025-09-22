@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import { useAuth } from "@/hooks/useAuth";
 import Navbar from "@/components/layout/Navbar";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -22,7 +23,8 @@ import {
 
 const Dashboard = () => {
   const [searchParams] = useSearchParams();
-  const role = searchParams.get('role') || 'buyer';
+  const { user, userRole, userProfile } = useAuth();
+  const role = searchParams.get('role') || userRole || 'buyer';
 
   // Mock data for different user roles
   const userData = {
@@ -393,7 +395,7 @@ const Dashboard = () => {
                 {role.charAt(0).toUpperCase() + role.slice(1)} Dashboard
               </h1>
               <p className="text-muted-foreground">
-                Welcome back, {currentUser.name}
+                Welcome back, {userProfile?.full_name || user?.email || currentUser.name}
               </p>
             </div>
             

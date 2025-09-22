@@ -1,8 +1,9 @@
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Heart, ShoppingCart, Eye } from "lucide-react";
+import { Heart, ShoppingCart, Eye, User } from "lucide-react";
 import { useState } from "react";
+import SellerProfile from "@/components/seller/SellerProfile";
 
 interface ProductCardProps {
   id: string;
@@ -15,6 +16,7 @@ interface ProductCardProps {
   mileage?: number;
   condition?: "new" | "used" | "refurbished";
   location?: string;
+  sellerId?: string;
 }
 
 const ProductCard = ({ 
@@ -27,7 +29,8 @@ const ProductCard = ({
   year, 
   mileage, 
   condition = "used",
-  location 
+  location,
+  sellerId 
 }: ProductCardProps) => {
   const [isFavorited, setIsFavorited] = useState(false);
 
@@ -67,6 +70,16 @@ const ProductCard = ({
           >
             <Heart className={`h-4 w-4 ${isFavorited ? 'fill-current' : ''}`} />
           </Button>
+          {sellerId && (
+            <SellerProfile 
+              sellerId={sellerId}
+              trigger={
+                <Button size="sm" variant="secondary" className="bg-white/90 hover:bg-white">
+                  <User className="h-4 w-4" />
+                </Button>
+              }
+            />
+          )}
         </div>
 
         {/* Condition Badge */}
@@ -136,7 +149,7 @@ const ProductCard = ({
           className="flex-1"
           onClick={() => console.log(`View details for ${id}`)}
         >
-          View Details
+          Contact Seller
         </Button>
         <Button 
           variant="outline" 
