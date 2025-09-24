@@ -39,7 +39,7 @@ const SellerProfile = ({ sellerId, trigger }: SellerProfileProps) => {
         .from('cars')
         .select('*')
         .eq('seller_id', sellerId)
-        .eq('status', 'available')
+        .eq('is_active', true)
         .limit(5);
 
       if (carsError) throw carsError;
@@ -49,7 +49,7 @@ const SellerProfile = ({ sellerId, trigger }: SellerProfileProps) => {
         .from('parts')
         .select('*')
         .eq('seller_id', sellerId)
-        .eq('status', 'available')
+        .eq('is_active', true)
         .limit(5);
 
       if (partsError) throw partsError;
