@@ -14,117 +14,36 @@ export type Database = {
   }
   public: {
     Tables: {
-      cars: {
+      movement_data: {
         Row: {
-          body_type: string | null
-          color: string | null
-          created_at: string
-          description: string | null
-          fuel_type: string | null
+          distance: number | null
           id: string
-          image_url: string | null
-          location: string | null
-          make: string
-          mileage: number | null
-          model: string
-          price: number
-          seller_id: string
-          status: string | null
-          title: string
-          transmission: string | null
-          updated_at: string
-          year: number
+          latitude: number
+          longitude: number
+          movement_type: string | null
+          recorded_at: string
+          speed: number | null
+          user_id: string
         }
         Insert: {
-          body_type?: string | null
-          color?: string | null
-          created_at?: string
-          description?: string | null
-          fuel_type?: string | null
+          distance?: number | null
           id?: string
-          image_url?: string | null
-          location?: string | null
-          make: string
-          mileage?: number | null
-          model: string
-          price: number
-          seller_id: string
-          status?: string | null
-          title: string
-          transmission?: string | null
-          updated_at?: string
-          year: number
+          latitude: number
+          longitude: number
+          movement_type?: string | null
+          recorded_at?: string
+          speed?: number | null
+          user_id: string
         }
         Update: {
-          body_type?: string | null
-          color?: string | null
-          created_at?: string
-          description?: string | null
-          fuel_type?: string | null
+          distance?: number | null
           id?: string
-          image_url?: string | null
-          location?: string | null
-          make?: string
-          mileage?: number | null
-          model?: string
-          price?: number
-          seller_id?: string
-          status?: string | null
-          title?: string
-          transmission?: string | null
-          updated_at?: string
-          year?: number
-        }
-        Relationships: []
-      }
-      parts: {
-        Row: {
-          category: string
-          compatible_makes: string[] | null
-          compatible_models: string[] | null
-          condition: string
-          created_at: string
-          description: string | null
-          id: string
-          image_url: string | null
-          location: string | null
-          price: number
-          seller_id: string
-          status: string | null
-          title: string
-          updated_at: string
-        }
-        Insert: {
-          category: string
-          compatible_makes?: string[] | null
-          compatible_models?: string[] | null
-          condition: string
-          created_at?: string
-          description?: string | null
-          id?: string
-          image_url?: string | null
-          location?: string | null
-          price: number
-          seller_id: string
-          status?: string | null
-          title: string
-          updated_at?: string
-        }
-        Update: {
-          category?: string
-          compatible_makes?: string[] | null
-          compatible_models?: string[] | null
-          condition?: string
-          created_at?: string
-          description?: string | null
-          id?: string
-          image_url?: string | null
-          location?: string | null
-          price?: number
-          seller_id?: string
-          status?: string | null
-          title?: string
-          updated_at?: string
+          latitude?: number
+          longitude?: number
+          movement_type?: string | null
+          recorded_at?: string
+          speed?: number | null
+          user_id?: string
         }
         Relationships: []
       }
@@ -133,11 +52,8 @@ export type Database = {
           avatar_url: string | null
           bio: string | null
           created_at: string
-          email: string
-          full_name: string | null
+          display_name: string | null
           id: string
-          location: string | null
-          phone: string | null
           updated_at: string
           user_id: string
         }
@@ -145,11 +61,8 @@ export type Database = {
           avatar_url?: string | null
           bio?: string | null
           created_at?: string
-          email: string
-          full_name?: string | null
+          display_name?: string | null
           id?: string
-          location?: string | null
-          phone?: string | null
           updated_at?: string
           user_id: string
         }
@@ -157,11 +70,8 @@ export type Database = {
           avatar_url?: string | null
           bio?: string | null
           created_at?: string
-          email?: string
-          full_name?: string | null
+          display_name?: string | null
           id?: string
-          location?: string | null
-          phone?: string | null
           updated_at?: string
           user_id?: string
         }
@@ -177,7 +87,7 @@ export type Database = {
         Insert: {
           created_at?: string
           id?: string
-          role: Database["public"]["Enums"]["app_role"]
+          role?: Database["public"]["Enums"]["app_role"]
           user_id: string
         }
         Update: {
@@ -193,10 +103,6 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      get_user_role: {
-        Args: { _user_id: string }
-        Returns: Database["public"]["Enums"]["app_role"]
-      }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
@@ -206,7 +112,7 @@ export type Database = {
       }
     }
     Enums: {
-      app_role: "admin" | "seller" | "driver" | "buyer"
+      app_role: "admin" | "user"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -334,7 +240,7 @@ export type CompositeTypes<
 export const Constants = {
   public: {
     Enums: {
-      app_role: ["admin", "seller", "driver", "buyer"],
+      app_role: ["admin", "user"],
     },
   },
 } as const
