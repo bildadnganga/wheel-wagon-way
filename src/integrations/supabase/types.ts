@@ -14,213 +14,16 @@ export type Database = {
   }
   public: {
     Tables: {
-      cars: {
-        Row: {
-          condition: string
-          created_at: string
-          description: string | null
-          fuel_type: string | null
-          id: string
-          image_url: string | null
-          location: string | null
-          make: string
-          mileage: number | null
-          model: string
-          price: number
-          seller_id: string
-          status: string
-          title: string
-          transmission: string | null
-          updated_at: string
-          year: number
-        }
-        Insert: {
-          condition?: string
-          created_at?: string
-          description?: string | null
-          fuel_type?: string | null
-          id?: string
-          image_url?: string | null
-          location?: string | null
-          make: string
-          mileage?: number | null
-          model: string
-          price: number
-          seller_id: string
-          status?: string
-          title: string
-          transmission?: string | null
-          updated_at?: string
-          year: number
-        }
-        Update: {
-          condition?: string
-          created_at?: string
-          description?: string | null
-          fuel_type?: string | null
-          id?: string
-          image_url?: string | null
-          location?: string | null
-          make?: string
-          mileage?: number | null
-          model?: string
-          price?: number
-          seller_id?: string
-          status?: string
-          title?: string
-          transmission?: string | null
-          updated_at?: string
-          year?: number
-        }
-        Relationships: []
-      }
-      movement_data: {
-        Row: {
-          distance: number | null
-          id: string
-          latitude: number
-          longitude: number
-          movement_type: string | null
-          recorded_at: string
-          speed: number | null
-          user_id: string
-        }
-        Insert: {
-          distance?: number | null
-          id?: string
-          latitude: number
-          longitude: number
-          movement_type?: string | null
-          recorded_at?: string
-          speed?: number | null
-          user_id: string
-        }
-        Update: {
-          distance?: number | null
-          id?: string
-          latitude?: number
-          longitude?: number
-          movement_type?: string | null
-          recorded_at?: string
-          speed?: number | null
-          user_id?: string
-        }
-        Relationships: []
-      }
-      parts: {
-        Row: {
-          category: string
-          compatibility: string | null
-          condition: string
-          created_at: string
-          description: string | null
-          id: string
-          image_url: string | null
-          location: string | null
-          price: number
-          seller_id: string
-          status: string
-          title: string
-          updated_at: string
-        }
-        Insert: {
-          category: string
-          compatibility?: string | null
-          condition?: string
-          created_at?: string
-          description?: string | null
-          id?: string
-          image_url?: string | null
-          location?: string | null
-          price: number
-          seller_id: string
-          status?: string
-          title: string
-          updated_at?: string
-        }
-        Update: {
-          category?: string
-          compatibility?: string | null
-          condition?: string
-          created_at?: string
-          description?: string | null
-          id?: string
-          image_url?: string | null
-          location?: string | null
-          price?: number
-          seller_id?: string
-          status?: string
-          title?: string
-          updated_at?: string
-        }
-        Relationships: []
-      }
-      profiles: {
-        Row: {
-          avatar_url: string | null
-          bio: string | null
-          created_at: string
-          display_name: string | null
-          id: string
-          updated_at: string
-          user_id: string
-        }
-        Insert: {
-          avatar_url?: string | null
-          bio?: string | null
-          created_at?: string
-          display_name?: string | null
-          id?: string
-          updated_at?: string
-          user_id: string
-        }
-        Update: {
-          avatar_url?: string | null
-          bio?: string | null
-          created_at?: string
-          display_name?: string | null
-          id?: string
-          updated_at?: string
-          user_id?: string
-        }
-        Relationships: []
-      }
-      user_roles: {
-        Row: {
-          created_at: string
-          id: string
-          role: Database["public"]["Enums"]["app_role"]
-          user_id: string
-        }
-        Insert: {
-          created_at?: string
-          id?: string
-          role?: Database["public"]["Enums"]["app_role"]
-          user_id: string
-        }
-        Update: {
-          created_at?: string
-          id?: string
-          role?: Database["public"]["Enums"]["app_role"]
-          user_id?: string
-        }
-        Relationships: []
-      }
+      [_ in never]: never
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      has_role: {
-        Args: {
-          _role: Database["public"]["Enums"]["app_role"]
-          _user_id: string
-        }
-        Returns: boolean
-      }
+      [_ in never]: never
     }
     Enums: {
-      app_role: "admin" | "user"
+      [_ in never]: never
     }
     CompositeTypes: {
       [_ in never]: never
@@ -347,8 +150,6 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {
-      app_role: ["admin", "user"],
-    },
+    Enums: {},
   },
 } as const
