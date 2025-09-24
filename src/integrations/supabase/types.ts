@@ -14,6 +14,66 @@ export type Database = {
   }
   public: {
     Tables: {
+      cars: {
+        Row: {
+          condition: string
+          created_at: string
+          description: string | null
+          fuel_type: string | null
+          id: string
+          image_url: string | null
+          location: string | null
+          make: string
+          mileage: number | null
+          model: string
+          price: number
+          seller_id: string
+          status: string
+          title: string
+          transmission: string | null
+          updated_at: string
+          year: number
+        }
+        Insert: {
+          condition?: string
+          created_at?: string
+          description?: string | null
+          fuel_type?: string | null
+          id?: string
+          image_url?: string | null
+          location?: string | null
+          make: string
+          mileage?: number | null
+          model: string
+          price: number
+          seller_id: string
+          status?: string
+          title: string
+          transmission?: string | null
+          updated_at?: string
+          year: number
+        }
+        Update: {
+          condition?: string
+          created_at?: string
+          description?: string | null
+          fuel_type?: string | null
+          id?: string
+          image_url?: string | null
+          location?: string | null
+          make?: string
+          mileage?: number | null
+          model?: string
+          price?: number
+          seller_id?: string
+          status?: string
+          title?: string
+          transmission?: string | null
+          updated_at?: string
+          year?: number
+        }
+        Relationships: []
+      }
       movement_data: {
         Row: {
           distance: number | null
@@ -44,6 +104,54 @@ export type Database = {
           recorded_at?: string
           speed?: number | null
           user_id?: string
+        }
+        Relationships: []
+      }
+      parts: {
+        Row: {
+          category: string
+          compatibility: string | null
+          condition: string
+          created_at: string
+          description: string | null
+          id: string
+          image_url: string | null
+          location: string | null
+          price: number
+          seller_id: string
+          status: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          category: string
+          compatibility?: string | null
+          condition?: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          location?: string | null
+          price: number
+          seller_id: string
+          status?: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          category?: string
+          compatibility?: string | null
+          condition?: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          location?: string | null
+          price?: number
+          seller_id?: string
+          status?: string
+          title?: string
+          updated_at?: string
         }
         Relationships: []
       }
